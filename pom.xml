@@ -62,18 +62,6 @@
                         <artifactId>findsecbugs-plugin</artifactId>
                         <version>LATEST</version> <!-- Auto-update to the latest stable -->
                     </plugin>
-			<plugin>
-                <groupId>org.owasp</groupId>
-                <artifactId>dependency-check-maven</artifactId>
-                <version>5.0.0-M3</version>
-                <reportSets>
-                    <reportSet>
-                        <reports>
-                            <report>aggregate</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
-            </plugin>
                 </plugins>
                   <executions>
                                 <execution>
@@ -88,6 +76,24 @@
           
                
         </plugin>
+        
+        <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>5.0.0-M3</version>
+                <configuration>
+                    <skipProvidedScope>true</skipProvidedScope>
+                    <skipRuntimeScope>true</skipRuntimeScope>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        
         <plugin>
       <groupId>org.sonatype.ossindex.maven</groupId>
       <artifactId>ossindex-maven-plugin</artifactId>
