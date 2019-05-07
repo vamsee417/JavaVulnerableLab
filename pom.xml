@@ -73,9 +73,6 @@
                             </executions>
             </configuration>
               
-          
-               
-        </plugin>
         
 
     <finalName>JavaVulnerableLab</finalName>
