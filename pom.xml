@@ -62,6 +62,18 @@
                         <artifactId>findsecbugs-plugin</artifactId>
                         <version>LATEST</version> <!-- Auto-update to the latest stable -->
                     </plugin>
+			<plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>5.0.0-M3</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>aggregate</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
                 </plugins>
                   <executions>
                                 <execution>
