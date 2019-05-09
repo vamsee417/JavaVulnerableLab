@@ -49,13 +49,12 @@
         <plugin>
             <groupId>com.github.spotbugs</groupId>
             <artifactId>spotbugs-maven-plugin</artifactId>
-            <version>3.1.1</version>
+          
             <configuration>
                 <effort>Max</effort>
                 <threshold>Low</threshold>
-                <failOnError>true</failOnError>
-                <includeFilterFile>${session.executionRootDirectory}/spotbugs-security-include.xml</includeFilterFile>
-                <excludeFilterFile>${session.executionRootDirectory}/spotbugs-security-exclude.xml</excludeFilterFile>
+                <failOnError>flase</failOnError>
+                
                 <plugins>
                     <plugin>
                         <groupId>com.h3xstream.findsecbugs</groupId>
@@ -119,6 +118,7 @@
 
     <finalName>JavaVulnerableLab</finalName>
 
-    
   </build>
+
 </project>
+
