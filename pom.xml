@@ -54,7 +54,8 @@
                 <effort>Max</effort>
                 <threshold>Low</threshold>
                 <failOnError>true</failOnError>
-               
+                <includeFilterFile>${session.executionRootDirectory}/spotbugs-security-include.xml</includeFilterFile>
+                <excludeFilterFile>${session.executionRootDirectory}/spotbugs-security-exclude.xml</excludeFilterFile>
                 <plugins>
                     <plugin>
                         <groupId>com.h3xstream.findsecbugs</groupId>
@@ -64,7 +65,7 @@
                 </plugins>
                   <executions>
                                 <execution>
-                                    <phase>validate</phase>
+                                    <phase>package</phase>
                                     <goals>
                                         <goal>spotbugs</goal>
                                     </goals>
@@ -79,13 +80,15 @@
         <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>5.0.0-M3</version>
+                
                 <configuration>
                     <skipProvidedScope>true</skipProvidedScope>
                     <skipRuntimeScope>true</skipRuntimeScope>
                 </configuration>
                 <executions>
+                
                     <execution>
+                    <phase>package</phase>
                         <goals>
                             <goal>check</goal>
                         </goals>
@@ -96,6 +99,7 @@
         <plugin>
       <groupId>org.sonatype.ossindex.maven</groupId>
       <artifactId>ossindex-maven-plugin</artifactId>
+     
       <configuration>
       <fail>false</fail>
     <reportFile>${project.build.directory}/audit-report.xml</reportFile>
@@ -103,7 +107,7 @@
       <executions>
         <execution>
           <id>audit-dependencies</id>
-          <phase>validate</phase>
+          <phase>package</phase>
           <goals>
             <goal>audit</goal>
           </goals>
@@ -115,44 +119,6 @@
 
     <finalName>JavaVulnerableLab</finalName>
 
-    <pluginManagement>
-    	<plugins>
-    		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-    		<plugin>
-    			<groupId>org.eclipse.m2e</groupId>
-    			<artifactId>lifecycle-mapping</artifactId>
-    			<version>1.0.0</version>
-    			<configuration>
-    				<lifecycleMappingMetadata>
-    					<pluginExecutions>
-    						<pluginExecution>
-    							<pluginExecutionFilter>
-    								<groupId>
-    									org.sonatype.ossindex.maven
-    								</groupId>
-    								<artifactId>
-    									ossindex-maven-plugin
-    								</artifactId>
-    								<versionRange>
-    									[3.0.4,)
-    								</versionRange>
-    								<goals>
-    									<goal>audit</goal>
-    								</goals>
-    							</pluginExecutionFilter>
-    							<action>
-    								<ignore></ignore>
-    							</action>
-    						</pluginExecution>
-    					</pluginExecutions>
-    				</lifecycleMappingMetadata>
-    			</configuration>
-    		</plugin>
-    	</plugins>
-    </pluginManagement>
+    
   </build>
- 
- 
-
-
 </project>
