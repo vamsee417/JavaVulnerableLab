@@ -45,6 +45,9 @@
     <plugins>
         
 
+     <plugin> <artifactId>maven-compiler-plugin</artifactId> </plugin>
+    
+   
         <plugin>
             <groupId>com.github.spotbugs</groupId>
             <artifactId>spotbugs-maven-plugin</artifactId>
@@ -58,7 +61,7 @@
                     <plugin>
                         <groupId>com.h3xstream.findsecbugs</groupId>
                         <artifactId>findsecbugs-plugin</artifactId>
-                        
+                        <version>LATEST</version> 
                     </plugin>
                 </plugins>
                   <executions>
@@ -70,7 +73,9 @@
                                 </execution>
                             </executions>
             </configuration>
-                 
+              
+          
+               
         </plugin>
         
         <plugin>
@@ -91,9 +96,11 @@
                     </execution>
                 </executions>
             </plugin>
-              <plugin>
+        
+        <plugin>
       <groupId>org.sonatype.ossindex.maven</groupId>
       <artifactId>ossindex-maven-plugin</artifactId>
+     
       <configuration>
       <fail>false</fail>
     <reportFile>${project.build.directory}/audit-report.xml</reportFile>
@@ -109,7 +116,9 @@
       </executions>
     </plugin>
     </plugins>
-    <finalName>JavaVulnerableLab</finalName>
-  </build>
-</project>
 
+    <finalName>JavaVulnerableLab</finalName>
+ 
+  </build>
+ 
+</project>
