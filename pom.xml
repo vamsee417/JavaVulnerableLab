@@ -117,7 +117,7 @@
     </plugin>
     </plugins>
 
-    <finalName>JavaVulnerableLab</finalName>
+    <finalName>JavaTest</finalName>
  
   </build>
  
