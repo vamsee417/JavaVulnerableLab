@@ -20,6 +20,10 @@ pipeline {
                 }
             }
         }
+		
+		stage('Report Gathering') {
+        publishHTML([allowMissing: true, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'target/: 'dependency-check-report.html', reportName: 'Dcheck'])
+
+    }
     }
 }
- 
