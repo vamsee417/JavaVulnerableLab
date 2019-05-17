@@ -11,15 +11,7 @@ pipeline {
             }
         }
 
-        stage ('Testing Stage') {
-
-            steps {
-                withMaven(maven : 'Maven_home') {
-                    sh 'mvn test'
-                }
-            }
-        }
-
+     
 
         stage ('Package Stage') {
             steps {
