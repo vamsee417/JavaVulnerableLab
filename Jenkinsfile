@@ -31,7 +31,8 @@ stage('Docker build') {
           sh 'docker run -v /var/run/docker.sock:/var/run/docker.sock -d --rm -p 8765:8054 --name javadock'
      }
 }
-      }
-    }
-  }
+
+}
+}
+}
 }
